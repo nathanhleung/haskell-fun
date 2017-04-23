@@ -64,3 +64,20 @@ factorial x = product [1..x]
 
 -- remove non uppercase
 removeNonUppercase string = [ch | ch <- string, ch `elem` ['A'..'Z']]
+
+-- remove odd numbers in list of lists
+removeOdds numLists =
+    [[num | num <- numList, even num] | numList <- numLists]
+    
+-- tuples
+zipped = zip [1..5] ["one", "two", "three", "four", "five"]
+
+infiniteZip = zip [1..] ['a'..'z']
+
+-- Which right triangle that has integers for all sides and all sides equal to or smaller
+-- than 10 has a perimeter of 24?
+
+-- we're  going up to b and c in the 2nd and 3rd ranges so a < b < c
+rightTriangles = [(a, b, c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2]
+
+rightTriangles' = [(a, b, c) | (a, b, c) <- rightTriangles, a + b + c == 24]
